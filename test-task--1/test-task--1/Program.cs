@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 
 namespace test_task__1  // создание бинарных файлов
 {
-       
+     [StructLayout(LayoutKind.Sequential,Pack =1)]  
     public struct Header //обьявление структуры "Header"
     {
         public int version;
-        //[MarshalAs(UnmanagedType.ByValTStr,SizeConst=16)]
+        [MarshalAs(UnmanagedType.ByValTStr,SizeConst=16)]
         public string type;
 
 
@@ -26,14 +26,14 @@ namespace test_task__1  // создание бинарных файлов
     }
 
 
-
+    [StructLayout(LayoutKind.Sequential, Pack = 1)]
     public struct TradeRecord //обьявление структуры "TradeRecord"
     {
 
         public int id;
         public int account;
         public double volume;
-        //[MarshalAs(UnmanagedType.ByValTStr,SizeConst=64)]
+        [MarshalAs(UnmanagedType.ByValTStr,SizeConst=64)]
         public string comment;
 
 
