@@ -5,6 +5,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 using System.Runtime.InteropServices;
+using System.Collections.ObjectModel;
 
 namespace test_task__1  // создание бинарных файлов содержащих структуры описанные в тестовом задании
 {
@@ -60,20 +61,31 @@ namespace test_task__1  // создание бинарных файлов сод
             Header[] header = new Header[1]; // создание экземпяра структуры "TradeRecord" на 1-ну строку
             header[0] = new Header(0001, "USD-EUR"); // инециализируем поля , присваиваем им значения через конструктор
 
+            Collection<TradeRecord> trades = new Collection<TradeRecord>();//создаем экземпляр коллекции 
 
-            TradeRecord[] trade = new TradeRecord[7]; // создание экземпяра структуры "TradeRecord" на 7-мь строк
-            trade[0] = new TradeRecord(01, 771, 6401, "profit 1");// инециализируем поля , присваиваем им значения через конструктор
-            trade[1] = new TradeRecord(02, 772, 6402, "profit 2");
-            trade[2] = new TradeRecord(03, 773, 6403, "profit 3");
-            trade[3] = new TradeRecord(04, 774, 6404, "profit 4");
-            trade[4] = new TradeRecord(05, 775, 6405, "profit 5");
-            trade[5] = new TradeRecord(06, 776, 6406, "profit 6");
-            trade[6] = new TradeRecord(07, 777, 6407, "profit 7");
+            //TradeRecord[] trade = new TradeRecord[7]; // создание экземпяра структуры "TradeRecord" на 7-мь строк
+            //trade[0] = new TradeRecord(01, 771, 6401, "profit 1");// инециализируем поля , присваиваем им значения через конструктор
+            //trade[1] = new TradeRecord(02, 772, 6402, "profit 2");
+            //trade[2] = new TradeRecord(03, 773, 6403, "profit 3");
+            //trade[3] = new TradeRecord(04, 774, 6404, "profit 4");
+            //trade[4] = new TradeRecord(05, 775, 6405, "profit 5");
+            //trade[5] = new TradeRecord(06, 776, 6406, "profit 6");
+            //trade[6] = new TradeRecord(07, 777, 6407, "profit 7");
+
+            TradeRecord[] trade = new TradeRecord[100]; // создание экземпяра структуры "TradeRecord" на 7-мь строк
+            
+            for (int i=0; i<100; i++)
+            {
+
+                trade[i] = new TradeRecord(0+i, 771+i, 640+i, "profit "+i);// инециализируем поля , присваиваем им значения через конструктор
+
+            }
+            
 
 
 
 
-            string path = @"D:\\_LISTING_\B-files\treding.dat";  //путь и имя бинарного файла со структурами
+            string path = @"D:\\_LISTING_\B-files\treding___.dat";  //путь и имя бинарного файла со структурами
 
 
 
