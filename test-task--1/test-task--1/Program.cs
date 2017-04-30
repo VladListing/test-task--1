@@ -14,27 +14,8 @@ namespace test_task__1  // создание бинарных файлов сод
 {
     
     //====================================================== обьявляем структуры ================ start  ==================================|
-    #region описание структура header
-    //[StructLayout(LayoutKind.Sequential, Pack = 1)]  // размещение в неуправляемый  код
-    //public struct Header //обьявление структуры "Header"
-    //{
-    //    public int version;
-    //    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 16)]  //маршалинг в неуправляемый код
-    //    public string type;
-
-
-    //    //конструктор "Header"
-    //    public Header(int e, string k)
-    //    {
-    //        version = e;
-    //        type = k;
-    //    }
-
-    //}
-    #endregion
-
-    #region описание структура trade
-    //[Serializable]
+      #region описание структура trade
+    
     [StructLayout(LayoutKind.Sequential, Pack = 1)] // размещение в неуправляемый код
     public struct TradeRecord //обьявление структуры "TradeRecord"
     {
@@ -66,26 +47,10 @@ namespace test_task__1  // создание бинарных файлов сод
         static void Main(string[] args) // точка входа
         {
             int schetchik = 0;//переменная счетчик количества проходов цикла
-            //int quantityHeaderLine = 1;//переменная количества элементов масива  содержашего структуры типа Header----х
             int quantityTradeRecodLine = 110;//переменная количества элементов масива  содержашего структуры типа TradeRecod----х
-
-            //BinaryFormatter formatter = new BinaryFormatter();// создаем экземпляр сериализатора для бинарных данных
 
             //======================= создаем экземпляры (обьекты) структур и инициализируем их поля ============= start ==============================|
             
-            //-------------------------------------------------header-----------------|
-            #region header
-            //Header[] header = new Header[quantityHeaderLine]; // создание экземпяра структуры "TradeRecord" на 1-ну строку
-            //header[0] = new Header(0001, "USD-EUR"); // инециализируем поля , присваиваем им значения через конструктор
-
-            //for (int i = 0; i < quantityHeaderLine; i++)
-            //{
-            //    header[i] = new Header(0 + i, "USD-EUR");// инециализируем поля , присваиваем им значения через конструктор
-            //}
-            #endregion
-            //-------------------------------------------------------------------|
-
-
             //------------------------------------------------trade-------------------|
             #region trade
             //TradeRecord[] trade = new TradeRecord[7]; // создание экземпяра структуры "TradeRecord" на 7-мь строк
@@ -122,24 +87,6 @@ namespace test_task__1  // создание бинарных файлов сод
                 #region BinaryWriter
                 using (BinaryWriter writer = new BinaryWriter(File.Open(path, FileMode.OpenOrCreate)))// открывае поток для записи структур в файл
                 {
-                    //-------циклом  записываем в файл значение  каждого поля структуры "Header" --------------start--------------------|
-                    #region header
-                    //foreach (Header z in header)
-                    //{
-                    //    writer.Write(z.version);
-                    //    writer.Write(z.type);
-
-                    //    schetchik = schetchik + 1;
-                    //}
-
-                    //Console.WriteLine("Счетчик записанных в файл строк структуры header: {0}  ", schetchik);
-
-                    //schetchik = 0;
-
-                    //var len1 = Marshal.SizeOf(typeof(Header));
-                    #endregion
-                    //------------------ записываем в файл значение  каждого поля структуры "Header"-----------------------end--------|
-
                     //--записываем через цикл в файл значение каждого поля строк структуры "TradeRecord"-----------start------------------|
                     #region
                     foreach (TradeRecord t in trade)
@@ -156,60 +103,14 @@ namespace test_task__1  // создание бинарных файлов сод
 
                     schetchik = 0;
 
-                    //var len2 = Marshal.SizeOf(typeof(TradeRecord));
+                    
                     #endregion
                     //-записываем через цикл в файл значение каждого поля строк структуры "TradeRecord"-----------------------end------|
                 }
                 # endregion
                 //================== создаем объект BinaryWriter (запись  в бинарный файл)================================= end =====================|
-                       
+                     
                 
-                //================== создаем объект BinaryReader (чтение  из бинарного файла)=================================start=========================|
-                #region BinaryReader
-                //    using (BinaryReader reader = new BinaryReader(File.Open(path, FileMode.Open)))
-                //{
-                //        Console.WriteLine();//пустая строка
-                //        reader.BaseStream.Position = 0;// устанавливаем "курсор" на 0-вую позицию в бинарном файле
-
-                //        // считываем через цикл каждое значение полей строк структуры "Header" из файла "treding.dat" и выводим на экран
-
-                //        //while (reader.PeekChar() > -1)
-                //        ////while (reader.BaseStream.Position < 12)//пока позиция курсора не превышает 12-тую в бинарном файле
-
-                //        //{
-                //        //    //var poz = reader.Current;
-                //        //    int version = reader.ReadInt32();
-                //        //    string type = reader.ReadString();
-
-                //        //    Console.WriteLine("версия: {0}      тип: {1} ", version, type);
-                //        //}
-                //        //    Console.WriteLine();//пустая строка
-
-                //        //reader.BaseStream.Position =  12;// устанавливаем "курсор" на 12-вую позицию в бинарном файле
-
-                //        // пока не достигнут конец файла
-                //        // считываем через цикл каждое значение полей строк структуры "TradeRecord" из файла "treding.dat" и выводим на экран
-                //        while (reader.PeekChar() > -1)// пока не достигнут конец файла
-                //        {
-                //            int id = reader.ReadInt32();
-                //            int account = reader.ReadInt32();
-                //            double volume = reader.ReadDouble();
-                //            string comment = reader.ReadString();
-
-                //            schetchik = schetchik + 1;
-
-                //            Console.WriteLine("id: {0}      счет: {1}     уровень: {2}       комментарий: {3} ", id, account, volume, comment);
-                //        }
-
-                //        Console.WriteLine(); //пустая строка
-
-                //        Console.WriteLine("Счетчик вычитанных из бинарного файла строк строк структуры trade: {0}  ", schetchik);
-
-                //    }
-                #endregion
-                //================== создаем объект BinaryReader (чтение  из бинарного файла)=================================end=====================|
-
-
             }//'''''''''  try '''''''' оператор выполнение которого может привести к ошибке ''''''''''''конец ''''|
 
 
