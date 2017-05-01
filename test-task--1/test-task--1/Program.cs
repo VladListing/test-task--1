@@ -45,7 +45,7 @@ namespace test_task__1  // создание бинарных файлов сод
         static void Main(string[] args) // точка входа
         {
             int quantityTradeRecodLine = 10000;//количество элементов массива  содержашего структуры типа TradeRecod----х
-            string path = @"D:\\_LISTING_\B-files\StructTrade.dat";  //путь и имя будующего бинарного файла содержащего  структуры
+            string path = @"D:\\Trade.dat";  //путь и имя будующего бинарного файла содержащего  структуры
             int schetchik = 0;//счетчик
             RandomString rnd = new RandomString();
             
@@ -85,7 +85,7 @@ namespace test_task__1  // создание бинарных файлов сод
                         schetchik = schetchik + 1;
                     }
 
-                    Console.WriteLine("Счетчик записанных в файл строк строк структуры trade: {0}  ", schetchik);
+                    Console.WriteLine("Счетчик записанных в файл 'D:\\Trade.dat'  строк структуры 'trade': {0}  ", schetchik);
 
                     schetchik = 0;
                                         
