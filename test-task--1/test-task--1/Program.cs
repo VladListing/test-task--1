@@ -42,8 +42,7 @@ namespace test_task__1  // создание бинарных файлов сод
 
      class Program
     {
-
-         static void Main(string[] args) // точка входа
+        static void Main(string[] args) // точка входа
         {
             int quantityTradeRecodLine = 10000;//количество элементов массива  содержашего структуры типа TradeRecod----х
             string path = @"D:\\_LISTING_\B-files\StructTrade.dat";  //путь и имя будующего бинарного файла содержащего  структуры
@@ -56,8 +55,6 @@ namespace test_task__1  // создание бинарных файлов сод
             #region trade
 
             TradeRecord[] trade = new TradeRecord[quantityTradeRecodLine]; // создание экземпяра структуры "TradeRecord" на X строк
-
-            
 
             for (int i = 0; i < quantityTradeRecodLine; i++)
             {
@@ -91,8 +88,7 @@ namespace test_task__1  // создание бинарных файлов сод
                     Console.WriteLine("Счетчик записанных в файл строк строк структуры trade: {0}  ", schetchik);
 
                     schetchik = 0;
-
-                    
+                                        
                     #endregion
                     //-записываем через цикл в файл значение каждого поля строк структуры "TradeRecord"-----------------------end------|
                 }
