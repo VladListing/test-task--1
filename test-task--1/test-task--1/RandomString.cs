@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace test_task__1
 {
     class RandomString
-
     {
         // в случайном порядке заполняем столбец коментариев
         Random r = new Random();
