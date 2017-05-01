@@ -9,6 +9,9 @@ namespace test_task__1
     class RandomString
     {
         // в случайном порядке заполняем столбец коментариев
+        #region
+
+
         Random r = new Random();
 
         string sumstroka = "";
@@ -39,5 +42,6 @@ namespace test_task__1
 
             return sumstroka;
         }
-    }
+        #endregion
+    }  
 }
