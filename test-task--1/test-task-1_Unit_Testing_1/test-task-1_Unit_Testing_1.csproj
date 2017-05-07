@@ -50,8 +50,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="ReaderFromBinaryFiles_Tests.cs" />
+    <Compile Include="ReaderFromBinaryFileTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\test-task-1\test-task-1\test-task-1\test-task-1.csproj">
+      <Project>{2821bbd6-b6d0-4333-8cb6-21b50bbb77fa}</Project>
+      <Name>test-task-1</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
