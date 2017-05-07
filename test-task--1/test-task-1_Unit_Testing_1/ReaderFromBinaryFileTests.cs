@@ -10,24 +10,24 @@ namespace test_task_1_Unit_Testing_1
     //описание структуры 'TradeRecord' 
     #region 'TradeRecord'
 
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]// размещение в неуправляемый код
-    public struct TradeRecord
-    {
-        public int id;
-        public int account;
-        public double volume;
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)] //маршалинг в неуправляемый код
-        public string comment;
+    //[StructLayout(LayoutKind.Sequential, Pack = 1)]// размещение в неуправляемый код
+    //struct TradeRecord
+    //{
+    //    public int id;
+    //    public int account;
+    //    public double volume;
+    //    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)] //маршалинг в неуправляемый код
+    //    public string comment;
 
-        //конструктор "TradeRecord"
-        public TradeRecord(int a, int b, double c, string d)
-        {
-            id = a;
-            account = b;
-            volume = c;
-            comment = d;
-        }
-    }
+    //    //конструктор "TradeRecord"
+    //    public TradeRecord(int a, int b, double c, string d)
+    //    {
+    //        id = a;
+    //        account = b;
+    //        volume = c;
+    //        comment = d;
+    //    }
+    //}
     #endregion
 
 
@@ -45,7 +45,7 @@ namespace test_task_1_Unit_Testing_1
         //после чего сверяем колличество строк в тестовом файле и колличество вычитанных строк в коллекцию, если они равны то тест пройден.  
 
         [TestMethod]//драйвер
-
+        #region
 
         public void fromBinaryFile_Created_and_Read__Lines()
         {
@@ -67,7 +67,7 @@ namespace test_task_1_Unit_Testing_1
             #endregion
 
 
-            //секция критичная в части исключений
+            
 
             //создание экземпляра BinaryWriter (запись  в бинарный файл)
             #region BinaryWriter
@@ -91,6 +91,7 @@ namespace test_task_1_Unit_Testing_1
             }
             #endregion
 
+         #endregion
 
 
 
@@ -98,27 +99,15 @@ namespace test_task_1_Unit_Testing_1
 
             //2.выполнить действие над той системой которую мы тестируем
 
-            //ReaderFromBinaryFiles readerFromBinaryFiles = new ReaderFromBinaryFiles();
             ReaderFromBinaryFiles readerFromBinaryFiles = new ReaderFromBinaryFiles(path);
 
-            int result2;//количество строк вычитаных из файла в коллекцию
+            int result2;//количество строк вычитаных из файла в коллекцию (вторая выходная переменная этой функции, первая это коллекция)
              readerFromBinaryFiles.fromBinaryFile(path, out result2);
 
-
             Assert.AreEqual(result1, result2);//сравнение ожидаемого и полученого
-
         }
 
-
-
-
-
-
-
-
-                
-
-           
+          
 
 
     }
