@@ -47,10 +47,12 @@ namespace test_task__1  // создание бинарных файлов сод
             Console.WriteLine("");
             Console.WriteLine("Введите количество строк для создаваемого бинарного файла  'D:\\Trade.dat' : ");
             Console.WriteLine("");
+
             string r = Console.ReadLine();
             int quantityTradeRecodLine = Convert.ToInt32(r);//количество элементов массива  содержашего структуры типа TradeRecod----х
             string path = @"D:\\Trade.dat";  //путь и имя будующего бинарного файла содержащего  структуры
             int schetchik = 0;//счетчик
+
             RandomString rnd = new RandomString();
 
             //создание экземпляра структуры и инициализфция полей (присвоение значений)
@@ -103,10 +105,6 @@ namespace test_task__1  // создание бинарных файлов сод
             }
             Console.ReadLine();
             #endregion
-
-
-
-
         }
     }
 }
